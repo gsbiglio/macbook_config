@@ -1,7 +1,7 @@
 #! /bin/bash
 
 
-# ----------- general configs -----------
+# ------------------ general configs ------------------------------------------------------
 
 # delete recents apps in dock
 defaults write com.apple.dock "show-recents" -bool "false" &&
@@ -15,11 +15,29 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1 &&
 # Always show scrollbars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always" &&
 # Disable opening and closing window animations
-defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false &&
+# Show all file extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 
-# ----------- download homebrew -----------
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" &&
+
+# ------------------ Install Zsh & Oh My Zsh ------------------------------------------------------
+# Do not run zsh after installation
+RUNZSH=no
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
+
+# ------------------ Download homebrew and install apps ------------------------------------------------------
+which -s brew
+if [[ $? != 0 ]] ; then
+    # Install homebrew.
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+fi
+# Update recipes
+brew update &&
+
+#install apps
 brew install wget &&
 brew install git &&
 brew install --cask slack &&
