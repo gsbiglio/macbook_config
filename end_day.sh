@@ -1,5 +1,6 @@
 osascript -e 'quit app "Slack"' &&
 osascript -e 'quit app "Google Chrome"' &&
+osascript -e 'quit app "Safari"' &&
 osascript -e 'quit app "Spotify"' &&
 osascript -e 'quit app "Postman"' &&
 osascript -e 'quit app "Visual Studio Code"' &&
@@ -10,4 +11,5 @@ osascript -e 'quit app "zoom.us"' &&
 osascript -e 'quit app "OpenVPN Connect"' &&
 osascript -e 'quit app "Preview"' &&
 osascript -e 'quit app "Tad"' &&
+osascript -e 'quit app "Docker Desktop"' &&
 osascript -e 'quit app "Terminal"'

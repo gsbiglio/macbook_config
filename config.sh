@@ -40,6 +40,12 @@ brew update &&
 #install apps
 brew install wget &&
 brew install git &&
+brew install diff-so-fancy &&
+# diff-so-fancy config
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX" &&
+git config --global interactive.diffFilter "diff-so-fancy --patch" &&
+
+brew install poetry &&
 brew install --cask slack &&
 brew install --cask google-chrome &&
 brew install --cask postman &&
