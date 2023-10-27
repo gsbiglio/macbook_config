@@ -11,7 +11,7 @@ for file in ~/Downloads/*
 do
     if [ -f $file ]
     then
-        ext=${file##*.}
+        ext=$(echo $file | awk -F . '{print $2}')
         if [ "$ext" == "csv" ]
         then
             mv $file ~/Downloads/csv
